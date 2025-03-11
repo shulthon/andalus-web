@@ -1,3 +1,14 @@
+@php
+
+$sitename = get_setting_value('_site_name');
+$sitecomp = get_setting_value('_site_company');
+$serleft = get_section_data('SERVICE Left');
+$serright = get_section_data('SERVICE Right');
+$serleftbg = get_section_data('SERVICE Left Background');
+$ser = get_section_data('Service');
+
+@endphp
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +19,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    <title>Our Service - Andalus</title>
+    <title>Our Service - {{ $sitename }}</title>
     <style>
 
       .row{
@@ -494,118 +505,63 @@ border: none;
                   </h3>
                   <br/>
                   <br/>
+
+
+                  @if($serleft)
                   <div class="row">
+
 
                   <!-- <div style="width:800px; margin:0px auto; font-size:18px;"> -->
                   <div class="column">
-                    <b style="font-size:18px">USER EXPERIENCE</b>
-                    <p>Kami memprioritaskan dalam menciptakan desain yang menarik dan pengalaman pengguna yang mulus untuk mendorong hasil optimal bagi bisnis Anda</p>
-                    <table>
-                      <tr>
-                        <td style="width:70px"><img src="{{ asset('img/uxres.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>UX Research</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/uxdes.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>UX Design</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/uxsur.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>UX Survey</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/uxus.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>Usability Testing</td>
-                      </tr>
-                    </table>
+                    <b style="font-size:18px">{{ $serleft->title }}</b>
+                    {!! $serleft->content !!}
                   </div>
 
                   <div class="column hideit">
-                  <img src="{{ asset('img/ux.png') }}" style="margin:0 auto"/>
+                  <img src="{{ Storage::url($serleft->thumbnail) }}" style="margin:0 auto"/>
                   </div>
                   </div>
+
+                  @endif
                   <br/>
                   <br/>
                   <br/>
                   <br/>
+                  @if($serright)
                   <div class="row">
                   <div class="column hideit">
-                  <img src="{{ asset('img/dev.png') }}" style="margin:0 auto"/>
+                  <img src="{{ Storage::url($serright->thumbnail)  }}" style="margin:0 auto"/>
                   </div>
                   <div class="column">
-                  <b style="font-size:18px">Development</b>
-                    <p>Pakar kami berspesialisasi dalam membangun situs web atau aplikasi seluler khusus di semua perangkat untuk mendukung bisnis Anda</p>
-                    <table>
-                      <tr>
-                        <td style="width:70px"><img src="{{ asset('img/devvis.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>Visual Design</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/devweb.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>Web Development</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/devmob.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>Mobile Apps</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/devecom.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>E-commerce</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/devcloud.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>Cloud Native Application</td>
-                      </tr>
-                      <tr>
-                        <td><img src="{{ asset('img/devmain.png') }}" style="margin:0 auto; width:50px"/></td>
-                        <td>Maintenance</td>
-                      </tr>
-                    </table>
+                  <b style="font-size:18px">{{ $serright->title }}</b>
+                  {!! $serright->content !!}
                     
                   </div>
                   </div>
+                  @endif
                   <!-- </div> -->
                 </div>
             </div>
         </section>
 
 
+        @if($serleftbg)
         <section class="mastsec" style="background:#1c9bab; color:#fff">
             <div class="container px-2">
                 <div class="gx-5 align-items-center">  
                   <div class="row">
                     <div class="column">
-                      <h4><i>SMARTHOME</i></h4>
-                      <p style="text-align:justify">Merupakan sebuah konsep rumah modern yang mengadopsi teknologi canggih untuk meningkatkan kualitas hidup penghuninya. Smart home system memungkinkan pengguna untuk mengontrol fungsi seperti akses keamanan ke rumah, suhu, pencahayaan, dan home theater dari jarak jauh.</p>
-                      <div style="height:50px"></div>
-                      <h4>Kelebihan Smarthome</h4>
-                      <table>
-                      <tr>
-                        <td style="width:60px; padding-bottom:7px;"><img src="{{ asset('img/sh1.png') }}" style="margin:0 auto"/></td>
-                        <td>Menikmati kenyamanan tingkat tinggi</td>
-                      </tr>
-                      <tr>
-                        <td style="width:60px; padding-bottom:7px;"><img src="{{ asset('img/sh2.png') }}" style="margin:0 auto"/></td>
-                        <td>Meningkatkan efisiensi kerja</td>
-                      </tr>
-                      <tr>
-                        <td style="width:60px; padding-bottom:7px;"><img src="{{ asset('img/sh3.png') }}" style="margin:0 auto"/></td>
-                        <td>Menghemat energi</td>
-                      </tr>
-                      <tr>
-                        <td style="width:60px; padding-bottom:7px;"><img src="{{ asset('img/sh4.png') }}" style="margin:0 auto"/></td>
-                        <td>Mempermudah keseharian</td>
-                      </tr>
-                    </table>
+                      <h4><i>{{ $serleftbg->title }}</i></h4>
+                      {!! $serleftbg->content !!}
                   </div>
-                  <div class="column hideit"><img src="{{ asset('img/smarthome.png') }}" alt="Andalus Smarthome" style="height:320px; margin:0 auto"/>
+                  <div class="column hideit"><img src="{{ Storage::url($serleftbg->thumbnail)  }}" alt="{{ $serleftbg->title }}" style="height:320px; margin:0 auto"/>
                   </div>
 </div>   
                   <!-- </div> -->
                 </div>
             </div>
         </section>
-
+        @endif
         <style>
                     .colleft {
                       float: left;
@@ -848,43 +804,7 @@ ul.new li{
             </div>
         </section> -->
         <!-- Footer-->
-        <footer class="bg-andalus text-center py-5">
-            <div class="container px-5">
-            
-            <img src="{{ asset('img/logo-square.png') }}" alt="Andalus Logo" height="90px" style="margin: 10px auto"/>
-              <div style="width:80%;margin:0 auto; text-align:left; color:white">
-                <b style="font-size:20px">Let's get in touch</b><br/><br/>
-                <table>
-                <tr>
-                <td width="50px" height="50px" style="text-align:center"><img src="{{ asset('img/loc_icon.png') }}" style="margin:0 auto" alt="Lokasi" width="30px"/></td>
-                <td>Jl. Flores IV No. 25 RT 001/RW 010, Aren Jaya, Kec. Bekasi Timur, Kota Bekasi</td>
-                </tr>
-                <tr>
-                <td width="50px" height="50px" style="text-align:center"><img src="{{ asset('img/hp_icon.png') }}" style="margin:0 auto" alt="HP" width="30px"/></td>
-                <td>+62 878 6220 1656</td>
-                </tr>
-                <tr>
-                <td width="50pxpx" height="50px" style="text-align:center"><img src="{{ asset('img/mail_icon.png') }}" style="margin:0 auto" alt="email" width="25px"/></td>
-                <td>andalusteknologi@gmail.com</td>
-                </tr>
-                
-                </table>
-                <!-- Jl. Flores IV No. ... RT 001/RW 010, Aren Jaya, Kec. Bekasi Timur, Kota Bekasi<br/>
-                +62 8xxxxxxxxxx<br/>
-                andalusteknologi@gmail.com -->
-              </div>
-              <br/>    
-              <!-- <b style="color:white">© 2023 PT Andalus Teknologi Indonesia</b> -->
-                <div class="text-white small">
-                    <div class="mb-2">&copy; 2023 PT Andalus Teknologi Indonesia. All Rights Reserved.</div>
-                    <!-- <a href="#!">Privacy</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">Terms</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">FAQ</a> -->
-                </div>
-            </div>
-        </footer>
+        @include('foot')
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>

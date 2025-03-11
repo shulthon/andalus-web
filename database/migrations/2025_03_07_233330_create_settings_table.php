@@ -59,9 +59,23 @@ return new class extends Migration
         ]);
 
         setting::create([
-            'key'=>'_site_description',
-            'label'=>'Site Description',
+            'key'=>'_site_company',
+            'label'=>'Nama Perusahaan',
             'value'=>'PT. Andalus Teknologi Indonesia',
+            'type'=>'text',
+        ]);
+        
+        setting::create([
+            'key'=>'_mail',
+            'label'=>'E-mail',
+            'value'=>'andalusteknologi@gmail.com',
+            'type'=>'text',
+        ]);
+        
+        setting::create([
+            'key'=>'_phone',
+            'label'=>'Telepon',
+            'value'=>'+62 878 6220 1656',
             'type'=>'text',
         ]);
     }

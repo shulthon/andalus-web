@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('thumbnail');
             $table->longText('content');
-            $table->enum('post_as',['JUMBOTRON','ABOUT'])->nullable();
+            $table->enum('post_as',['HOME Left','HOME Right','HOME Normal','SERVICE Left','SERVICE Right','SERVICE Left Background','Service','PRODUCT App','PRODUCT Normal','MEDIA PARTNER','MEDIA PARTNER Footer','CONTACT'])->nullable();
             $table->timestamps();
         });
     }

@@ -5,6 +5,10 @@ $sitecomp = get_setting_value('_site_company');
 $mail = get_setting_value('_mail');
 $location = get_setting_value('_location');
 $phone = get_setting_value('_phone');
+$homeleft = get_section_data('HOME Left');
+
+$homeright = get_section_data('HOME Right');
+$homenormal = get_section_data('HOME Normal');
 
 @endphp
 
@@ -307,6 +311,10 @@ $phone = get_setting_value('_phone');
             </div>
         </aside> -->
         <!-- Basic features section-->
+
+        @if ($homeleft)
+
+        
         <section class="mastsec bg-sec-left">
             <div class="container px-2">
                 <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
@@ -327,93 +335,54 @@ $phone = get_setting_value('_phone');
 
                     <div class="col-12 col-lg-5 order-lg-0">
                         <!-- <div class="shape-one"></div> -->
-                        <h2 class="display-4 lh-1 mb-4">Who We Are</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">PT Andalus Teknologi Indonesia merupakan perusahaan berbasis teknologi yang menyediakan pelayanan pada berbagai bidang dengan fokus pencapaian terhadap hasil yang berkualitas. Perusahaan ini didedikasikan sebagai perusahaan yang mampu memberikan solusi dan layanan teknologi terbaik kepada pelanggan. Antesia berkomitmen menjadi mitra terpercaya dalam merencanakan dan memberikan solusi teknologi terkini berdasarkan kebutuhan pelanggan.</p>
+                        <h2 class="display-4 lh-1 mb-4">{{ $homeleft->title }}</h2>
+                        <p class="fw-normal mb-5 mb-lg-0">{!! $homeleft->content !!}</p>
                     </div>
                     <div class="col-sm-8 col-md-5 order-lg-1">
-                        <div class="px-5 px-sm-0"><img class="img-fluid" src="{{ asset('img/img1.png') }}" alt="..." /></div>
+                        <div class="px-5 px-sm-0"><img class="img-fluid" src="{{ Storage::url($homeleft->thumbnail) }}" alt="..." /></div>
                     </div>
                 </div>
             </div>
         </section>
 
+        @endif
+
+        @if ($homeright)
         <section class="mastsec bg-sec-right text-lg-end">
             <div class="container px-2">
 
                 <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
 
                     <div class="col-12 col-lg-5 order-lg-1">
-                        <h2 class="display-6 lh-1 mb-4">Visi</h2>
+                        {{-- <h2 class="display-6 lh-1 mb-4">Visi</h2>
                         <p class="lead fw-semibold mb-5 mb-lg-0">Menjadi pusat teknologi yang unggul dalam berbagai bidang dengan mengharapkan rahmat dan ridho Allah ﷻ</p>
                         <br/>
                         <br/>
                         <h2 class="display-6 lh-1 mb-4">Misi</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">Mengembangkan perusahaan guna mewujudkan penggunaan teknologi sesuai dengan nilai nilai al quran dan hadist; Meniadakan transaksi yang mengandung Riba, Gharar dan Maysir di dalamnya; Memberikan solusi yang efektif kepada pelanggan dalam mengatasi berbagai permasalahan pada bidang teknologi.</p>
-                    </div>
+                        <p class="fw-normal mb-5 mb-lg-0">Mengembangkan perusahaan guna mewujudkan penggunaan teknologi sesuai dengan nilai nilai al quran dan hadist; Meniadakan transaksi yang mengandung Riba, Gharar dan Maysir di dalamnya; Memberikan solusi yang efektif kepada pelanggan dalam mengatasi berbagai permasalahan pada bidang teknologi.</p> --}}
+                        {!! $homeright->content !!}
+                      </div>
                     <div class="col-sm-8 col-md-5 order-lg-0">
-                        <div class="px-5 px-sm-0"><img class="img-fluid" src="{{ asset('img/img2.png') }}" alt="..." /></div>
+                        <div class="px-5 px-sm-0"><img class="img-fluid" src="{{ Storage::url($homeright->thumbnail) }}" alt="..." /></div>
                     </div>
                 </div>
             </div>
         </section>
+        @endif
 
-
+        @if($homenormal)
         <section class="mastsec">
             <div class="container px-2">
 
                 <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-                <h2 style="margin-bottom:50px; font-size:50px;font-family:Keania One">Nilai Perusahaan</h2>
+                <h2 style="margin-bottom:50px; font-size:50px;font-family:Keania One">{{ $homenormal->title }}</h2>
 
-                <div class="baris">
-                  <div class="kolom">
-                      <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Andal</h2>
-                        <p class="fw-normal mb-lg-0">Kami akan menempatkan proyek Anda sebagai prioritas utama kami.  Dengan senang hati kami akan bertanggung jawab untuk menangani setiap proyek yang dipercayakan kepada kami dan memenuhi target yang ditentukan.</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Moral</h2>
-                        <p class="fw-normal mb-lg-0">Melayani dengan sepenuh hati, Memberikan pelayanan terbaik</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Arif</h2>
-                        <p class="fw-normal mb-lg-0">Dapat mengerti segala kebutuhan pelanggan</p>
-                        <br/>
-                  </div>
-                  <div class="vertical-line"></div>
-                  <div class="kolom">
-                  <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Netral</h2>
-                        <p class="fw-normal mb-lg-0">Berlaku adil dan tidak memihak</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Akuntabilitas</h2>
-                        <p class="fw-normal mb-lg-0">Bertanggung jawab kepada pihak-pihak yang berhubungan  terkait  kegiatan bisnis atau kinerja dalam menjalankan proyek</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Harmoni</h2>
-                        <p class="fw-normal mb-lg-0">Menjaga keseimbangan organisasi dengan bertumbuh dan berkembang bersama di dalam suasana kekeluargaan dan saling mendukung untuk kemajuan individual dan organisasi.</p>
-                    
-                  </div>
-                </div>
+                {!! $homenormal->content !!}
 
-                    <!-- <div class="col-sm-8 order-lg-2" style="flex: 0 0 auto;width: 47.66666667%;">        
-                      <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Netral</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">Berlaku adil dan tidak memihak</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Akuntabilitas</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">Bertanggung jawab kepada pihak-pihak yang berhubungan  terkait  kegiatan bisnis atau kinerja dalam menjalankan proyek</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Harmoni</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">Menjaga keseimbangan organisasi dengan bertumbuh dan berkembang bersama di dalam suasana kekeluargaan dan saling mendukung untuk kemajuan individual dan organisasi.</p>
-                    </div>
-                    <div class="col-sm-8 order-lg-0" style="flex: 0 0 auto;width: 47.66666667%;">
-                      <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Andal</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">Kami akan menempatkan proyek Anda sebagai prioritas utama kami.  Dengan senang hati kami akan bertanggung jawab untuk menangani setiap proyek yang dipercayakan kepada kami dan memenuhi target yang ditentukan.</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Moral</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">Melayani dengan sepenuh hati, Memberikan pelayanan terbaik</p>
-                        <br/>
-                        <h2 class="lh-1 mb-4" style="font-size: calc(1rem + 1vw);background:url('{{ asset('img/bg_point.svg') }}');background-repeat: no-repeat; color:white; padding:10px;">Arif</h2>
-                        <p class="fw-normal mb-5 mb-lg-0">Dapat mengerti segala kebutuhan pelanggan</p>
-                    </div> -->
                 </div>
             </div>
         </section>
-
+        @endif
         
         <!-- Call to action section-->
         <!-- <section class="cta">
@@ -439,43 +408,7 @@ $phone = get_setting_value('_phone');
             </div>
         </section> -->
         <!-- Footer-->
-        <footer class="bg-andalus text-center py-5">
-            <div class="container px-5">
-            
-            <img src="{{ asset('img/logo-square.png') }}" alt="Andalus Logo" height="90px" style="margin: 10px auto"/>
-              <div style="width:80%;margin:0 auto; text-align:left; color:white">
-                <b style="font-size:20px">Let's get in touch</b><br/><br/>
-                <table>
-                <tr>
-                <td width="50px" height="50px" style="text-align:center"><img src="{{ asset('img/loc_icon.png') }}" style="margin:0 auto" alt="Lokasi" width="30px"/></td>
-                <td>{{ $location }}</td>
-                </tr>
-                <tr>
-                <td width="50px" height="50px" style="text-align:center"><img src="{{ asset('img/hp_icon.png') }}" style="margin:0 auto" alt="HP" width="30px"/></td>
-                <td>{{ $phone }}</td>
-                </tr>
-                <tr>
-                <td width="50pxpx" height="50px" style="text-align:center"><img src="{{ asset('img/mail_icon.png') }}" style="margin:0 auto" alt="email" width="25px"/></td>
-                <td>{{ $mail }}</td>
-                </tr>
-                
-                </table>
-                <!-- Jl. Flores IV No. ... RT 001/RW 010, Aren Jaya, Kec. Bekasi Timur, Kota Bekasi<br/>
-                +62 8xxxxxxxxxx<br/>
-                andalusteknologi@gmail.com -->
-              </div>
-              <br/>    
-              <!-- <b style="color:white">© 2023 PT Andalus Teknologi Indonesia</b> -->
-                <div class="text-white small">
-                    <div class="mb-2">&copy; 2023 {{ $sitename }}. All Rights Reserved.</div>
-                    <!-- <a href="#!">Privacy</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">Terms</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">FAQ</a> -->
-                </div>
-            </div>
-        </footer>
+        @include('foot')
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>

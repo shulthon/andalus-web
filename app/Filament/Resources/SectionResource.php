@@ -37,8 +37,19 @@ class SectionResource extends Resource
                         ->required()
                         ->columnSpanFull(),
                     Forms\Components\Select::make('post_as')->options([
-                        'JUMBOTRON' => 'JUMBOTRON',
-                        'ABOUT' => 'ABOUT'
+                        'HOME Left' => 'HOME Left',
+                        'HOME Right' => 'HOME Right',
+                        'HOME Normal' => 'HOME Normal',
+                        'SERVICE Left' => 'SERVICE Left',
+                        'SERVICE Right' => 'SERVICE Right',
+                        'SERVICE Left Background' => 'SERVICE Left Background',
+                        'Service' => 'Service',
+                        'PRODUCT App' => 'PRODUCT App',
+                        'PRODUCT Normal' => 'PRODUCT Normal',
+                        'MEDIA PARTNER' => 'MEDIA PARTNER',
+                        'MEDIA PARTNER Footer' => 'MEDIA PARTNER Footer',
+                        'CONTACT' => 'CONTACT'
+                        
                     ])
                 ])
             ]);

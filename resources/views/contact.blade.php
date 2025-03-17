@@ -2,8 +2,12 @@
 
 $sitename = get_setting_value('_site_name');
 $sitecomp = get_setting_value('_site_company');
+$contact = get_section_data('CONTACT');
 $medlist = get_section_arr('MEDIA PARTNER'); //'PRODUCT App','PRODUCT Normal','MEDIA PARTNER','MEDIA PARTNER Footer','CONTACT'
 $foot = get_section_data('MEDIA PARTNER Footer');
+$mail = get_setting_value('_mail');
+$location = get_setting_value('_location');
+$phone = get_setting_value('_phone');
 
 @endphp
 
@@ -17,7 +21,7 @@ $foot = get_section_data('MEDIA PARTNER Footer');
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    <title>Media & Partner - {{ $sitename }}</title>
+    <title>Contact Us - {{ $sitename }}</title>
     <style>
 
       .row{
@@ -360,37 +364,33 @@ border: none;
             <div class="container px-2">
                 <div class="row gx-5 align-items-center">     
                   <div style="height:100px"></div>
-                  <h3 class="medpar">
-                  <b>MEDIA & PARTNER</b>
-                  </h3>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <ul class="fram">
 
-                      @php
-
-                      $i = 1;
-              
-                      @endphp
-              
-                      @foreach($medlist as $med)
-              
-                      <li class="fram-item">
-                        <div style="padding:10px 30px;">
-                        <img src="{{ Storage::url($med->thumbnail) }}" alt="Berita Manasikku" style="width: 100%"/>
-                        <br/><br/>
-                        {!! $med->content !!}
-                        </div>                      
-                      </li>
-              
-                      @php
-                        $i++;
-                      @endphp
-                      @endforeach
+                    @if($mail && $location && $phone)
+                    <section class="mastsec">
+                        <div class="container px-2">
+                            <div class="row gx-5 align-items-center">     
+                                <h3 class="medpar" style="margin-bottom: 30px">Hubungi Kami</h3><br/>
+                                <table style="background:#1C9BAB;color:#fff">
+                                    <tr>
+                                    <td width="50px" height="50px" style="text-align:center"><img src="{{ asset('img/loc_icon.png') }}" style="margin:0 auto" alt="Lokasi" width="30px"/></td>
+                                    <td>{{ $location }}</td>
+                                    </tr>
+                                    <tr>
+                                    <td width="50px" height="50px" style="text-align:center"><img src="{{ asset('img/hp_icon.png') }}" style="margin:0 auto" alt="HP" width="30px"/></td>
+                                    <td><a style="color:#fff !important" href="http://wa.me/{{ str_replace(' ', '', $phone) }}">{{ $phone }}</a></td>
+                                    </tr>
+                                    <tr>
+                                    <td width="50pxpx" height="50px" style="text-align:center"><img src="{{ asset('img/mail_icon.png') }}" style="margin:0 auto" alt="email" width="25px"/></td>
+                                    <td><a style="color:#fff !important" href="mailto:{{ $mail }}">{{ $mail }}</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    @endif
 
                       
-</ul>
+
 <ul class="fram">
 <li class="fram-item" style="border: 10px solid #fff"></li>
 <li class="fram-item" style="border: 10px solid #fff"></li>
@@ -398,27 +398,7 @@ border: none;
                 </div>
             </div>
         </section>
-        @if($foot)
 
-        <section class="mastsec">
-            <div class="container px-2">
-                <div class="row gx-5 align-items-center">     
-                  <br/><br/><br/><br/>
-                  <h3 class="medpar">
-                  <b>{{ $foot->title }}</b>
-                  </h3>
-                  <br/>
-                  <br/>
-
-                  <div style="width:800px; margin:0px auto; font-size:18px;">
-
-                    {!! $foot->content !!}
-
-                  </div>
-                </div>
-            </div>
-        </section>
-        @endif
 
         @include('foot')
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

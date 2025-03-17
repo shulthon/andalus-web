@@ -29,3 +29,11 @@ Route::get('/media-partner', function () {
         "tes"=>"OK bos"
     ]);
 });
+
+
+Route::get('/contact-us', function () {
+    return view('contact',[
+        "name"=>"Andalus",
+        "tes"=>"OK bos"
+    ]);
+});
